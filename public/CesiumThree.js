@@ -80,7 +80,7 @@ define([
       automaticallyTrackDataSourceClocks: false,
       dataSources: null,
       clock: null,
-      terrainShadows: CesiumShadowMode.DISABLED
+      terrainShadows: CesiumShadowMode.DISABLED,
 	terrainProvider: Cesium.createWorldTerrain()
 
 
@@ -258,7 +258,7 @@ define([
 function addFloor(scene, width, height) {
 	 // Ground
 
-	console.log("FLOOR3");
+	console.log("FLOOR0");
 
     const WIDTH = width;
     const HEIGHT = height;

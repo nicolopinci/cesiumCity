@@ -47,9 +47,9 @@ define([
   function initCesium(){
     cesium.viewer = new CesiumViewer(cesiumContainer,{
       useDefaultRenderLoop: false,
-      selectionIndicator : false,
-      homeButton:false,
-      sceneModePicker:false,
+      selectionIndicator : true,
+      homeButton:true,
+      sceneModePicker:true,
       navigationHelpButton:false,
       infoBox : false,
       navigationHelpButton:false,

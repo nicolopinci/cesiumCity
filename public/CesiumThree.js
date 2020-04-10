@@ -1,5 +1,7 @@
 var Cesium = {};
 
+Cesium.Ion.defaultAccessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI3N2RhMDBhNC0zZTE5LTQ0MjQtYjFjYy04N2U2MGNjMDBlMzEiLCJpZCI6MjU2NjYsInNjb3BlcyI6WyJhc2wiLCJhc3IiLCJnYyIsInByIl0sImlhdCI6MTU4NjM4MzIzMX0.LDouIMr11WrXTiXWCRqSevZ5nPHsdwP3F4v-BQxu-9E';
+
 define([
         'Cesium/Core/Cartesian3',
         'Cesium/Widgets/Viewer/Viewer',
@@ -54,9 +56,9 @@ define([
       infoBox : false,
       navigationHelpButton:false,
       navigationInstructionsInitiallyVisible:false,
-      animation : false,
-      timeline : false,
-      fullscreenButton : false,
+      animation : true,
+      timeline : true,
+      fullscreenButton : true,
       allowTextureFilterAnisotropic:false,
       contextOptions:{
         webgl: {
@@ -73,7 +75,7 @@ define([
       resolutionScale:0.1,
       orderIndependentTranslucency : true,
       imageryProvider : undefined,
-      baseLayerPicker : false,
+      baseLayerPicker : true,
       geocoder : false,
       automaticallyTrackDataSourceClocks: false,
       dataSources: null,

@@ -1,6 +1,6 @@
 var Cesium = {};
 
-//Cesium.Ion.defaultAccessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI3N2RhMDBhNC0zZTE5LTQ0MjQtYjFjYy04N2U2MGNjMDBlMzEiLCJpZCI6MjU2NjYsInNjb3BlcyI6WyJhc2wiLCJhc3IiLCJnYyIsInByIl0sImlhdCI6MTU4NjM4MzIzMX0.LDouIMr11WrXTiXWCRqSevZ5nPHsdwP3F4v-BQxu-9E';
+Cesium.Ion.defaultAccessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI3N2RhMDBhNC0zZTE5LTQ0MjQtYjFjYy04N2U2MGNjMDBlMzEiLCJpZCI6MjU2NjYsInNjb3BlcyI6WyJhc2wiLCJhc3IiLCJnYyIsInByIl0sImlhdCI6MTU4NjM4MzIzMX0.LDouIMr11WrXTiXWCRqSevZ5nPHsdwP3F4v-BQxu-9E';
 
 define([
         'Cesium/Core/Cartesian3',
@@ -85,6 +85,15 @@ define([
     });
 
 	cesium.viewer.scene.logarithmicDepthBuffer = false;
+	cesium.viewer.terrainProvider = Cesium.createWorldTerrain({
+         requestWaterMask : true,  
+         requestVertexNormals : true 
+     });
+
+     viewer.scene.globe.depthTestAgainstTerrain = true;
+
+    
+     viewer.scene.globe.enableLighting = true;
 
     var center = CesiumCartesian3.fromDegrees(
       (minWGS84[0] + maxWGS84[0]) / 2,

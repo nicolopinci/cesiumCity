@@ -82,9 +82,9 @@ define([
       clock: null,
       terrainShadows: CesiumShadowMode.DISABLED,
 	terrainProvider: Cesium.createWorldTerrain({
-requestWaterMask : true,
-        requestVertexNormals : true
-});
+		requestWaterMask : true,
+        	requestVertexNormals : true
+	})
 
 
     });
@@ -261,7 +261,7 @@ requestWaterMask : true,
 function addFloor(scene, width, height) {
 	 // Ground
 
-	console.log("FLOOR0");
+	console.log("FLOOR17.0");
 
     const WIDTH = width;
     const HEIGHT = height;

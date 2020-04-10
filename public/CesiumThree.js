@@ -81,10 +81,10 @@ define([
       dataSources: null,
       clock: null,
       terrainShadows: CesiumShadowMode.DISABLED,
-	terrainProvider: Cesium.createWorldTerrain({
+	/*terrainProvider: Cesium.createWorldTerrain({
 		requestWaterMask : true,
         	requestVertexNormals : true
-	})
+	})*/
 
 
     });

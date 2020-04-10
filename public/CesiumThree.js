@@ -82,7 +82,7 @@ define([
 
     });
 
-	viewer.scene.logarithmicDepthBuffer = false;
+	cesium.viewer.scene.logarithmicDepthBuffer = false;
 
     var center = CesiumCartesian3.fromDegrees(
       (minWGS84[0] + maxWGS84[0]) / 2,

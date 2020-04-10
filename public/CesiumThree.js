@@ -85,15 +85,8 @@ define([
     });
 
 	cesium.viewer.scene.logarithmicDepthBuffer = false;
-	cesium.viewer.terrainProvider = Cesium.createWorldTerrain({
-         requestWaterMask : true,  
-         requestVertexNormals : true 
-     });
 
-     viewer.scene.globe.depthTestAgainstTerrain = true;
 
-    
-     viewer.scene.globe.enableLighting = true;
 
     var center = CesiumCartesian3.fromDegrees(
       (minWGS84[0] + maxWGS84[0]) / 2,

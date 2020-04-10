@@ -81,10 +81,8 @@ define([
       dataSources: null,
       clock: null,
       terrainShadows: CesiumShadowMode.DISABLED
+	terrainProvider: Cesium.createWorldTerrain()
 
-terrainProvider: new Cesium.CesiumTerrainProvider({
-        url: Cesium.IonResource.fromAssetId(3957)
-    })
 
     });
 
@@ -260,7 +258,7 @@ terrainProvider: new Cesium.CesiumTerrainProvider({
 function addFloor(scene, width, height) {
 	 // Ground
 
-	console.log("FLOOR2");
+	console.log("FLOOR3");
 
     const WIDTH = width;
     const HEIGHT = height;

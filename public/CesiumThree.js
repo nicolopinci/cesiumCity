@@ -79,7 +79,10 @@ define([
       dataSources: null,
       clock: null,
       terrainShadows: CesiumShadowMode.DISABLED
+
     });
+
+	viewer.scene.logarithmicDepthBuffer = false;
 
     var center = CesiumCartesian3.fromDegrees(
       (minWGS84[0] + maxWGS84[0]) / 2,
@@ -106,12 +109,15 @@ define([
     var far = 10*1000*1000;
 
     three.scene = new THREE.Scene();
+		three.scene = addFloor(three.scene, 1500, 1500);
+
     three.camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
     three.renderer = new THREE.WebGLRenderer({alpha: true});
     ThreeContainer.appendChild(three.renderer.domElement);
   }
 
   function init3DObject(){
+
     //Cesium entity
     var entity = {
       name : 'Polygon',
@@ -241,8 +247,54 @@ define([
     renderThreeObj();
   }
 
+
+function addFloor(scene, width, height) {
+	 // Ground
+
+	console.log("FLOOR2");
+
+    const WIDTH = width;
+    const HEIGHT = height;
+
+    const pavementTexture = new THREE.TextureLoader().load('https://nicolopinci.github.io/fjarora/js/img/pavement.jpg');
+    pavementTexture.wrapS = THREE.RepeatWrapping;
+    pavementTexture.wrapT = THREE.RepeatWrapping;
+    pavementTexture.repeat.set(WIDTH/20, HEIGHT/20);
+
+    const bumpPavement = new THREE.TextureLoader().load('https://nicolopinci.github.io/fjarora/js/img/pavementbump.jpg');
+    bumpPavement.wrapS = THREE.RepeatWrapping;
+    bumpPavement.wrapT = THREE.RepeatWrapping;
+    bumpPavement.repeat.set(WIDTH/20, HEIGHT/20);
+
+    var planeMaterial =
+      new THREE.MeshStandardMaterial(
+        {
+          color: 0xdddddd,
+          side: THREE.DoubleSide,
+          map: pavementTexture,
+          bumpMap: bumpPavement,
+
+        });
+
+    var planeGeo = new THREE.PlaneGeometry(WIDTH, HEIGHT, 1);
+    var plane = new THREE.Mesh(planeGeo, planeMaterial);
+    plane.rotation.x = Math.PI/2;
+    plane.noCast = true;
+    plane.name = "cityFloor";
+
+   scene.add(plane);
+
+	return scene;
+}
+
+
   initCesium(); // Initialize Cesium renderer
   initThree(); // Initialize Three.js renderer
   init3DObject(); // Initialize Three.js object mesh with Cesium Cartesian coordinate system
   loop(); // Looping renderer
 });
+
+
+
+
+

@@ -82,9 +82,14 @@ define([
       clock: null,
       terrainShadows: CesiumShadowMode.DISABLED
 
+terrainProvider: new Cesium.CesiumTerrainProvider({
+        url: Cesium.IonResource.fromAssetId(3957)
+    })
+
     });
 
 	cesium.viewer.scene.logarithmicDepthBuffer = false;
+
 
 
 
